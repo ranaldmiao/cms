@@ -160,6 +160,9 @@ class Config:
         self.max_jobs_per_user = 10
         self.pdf_printing_allowed = False
 
+        # ClarificationSystem
+        self.clarification_login_url = '/' # Go nowhere
+
         # Installed or from source?
         # We declare we are running from installed if the program was
         # NOT invoked through some python flavor, and the file is in

@@ -182,5 +182,11 @@
 
 
 
+    "_section": "ClarificationSystem",
+
+    "_help": "Clarification System URL",
+    "clarification_login_url": "https://clarification.sijie123.com/api/login",
+
+
     "_help": "This is the end of this file."
 }

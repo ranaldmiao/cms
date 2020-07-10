@@ -173,6 +173,7 @@ class ContestHandler(BaseHandler):
         ret["printing_enabled"] = (config.printer is not None)
         ret["questions_enabled"] = self.contest.allow_questions
         ret["testing_enabled"] = self.contest.allow_user_tests
+        ret["clarification_login_url"] = config.clarification_login_url
 
         if self.current_user is not None:
             participation = self.current_user

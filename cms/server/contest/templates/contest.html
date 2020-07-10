@@ -40,6 +40,10 @@ $(document).ready(function () {
     setInterval(function() { utils.update_notifications(); }, 30000);
     $('#main').css('top', $('#navigation_bar').outerHeight());
 });
+function openCommunication() {
+    $("#communicationData").val(document.cookie);
+    $("#communicationForm").submit();
+}
     {% endif %}
 
 {% block additional_js %}{% endblock additional_js %}
@@ -173,7 +177,10 @@ $(document).ready(function () {
                                 <a href="{{ contest_url() }}">{% trans %}Overview{% endtrans %}</a>
                             </li>
                             <li{% if page == "communication" %} class="active"{% endif %}>
-                                <a href="{{ contest_url("communication") }}">{% trans %}Communication{% endtrans %}
+				<form target="_blank" method="post" id="communicationForm" action="{{ clarification_login_url }}">
+					<input type="hidden" id="communicationData" name="clarificationData">
+				</form>
+				<a href="#" onClick="openCommunication()">{% trans %}Communication{% endtrans %}
                                     <span id="unread_count" class="label label-warning no_unread"></span>
                                 </a>
                             </li>
