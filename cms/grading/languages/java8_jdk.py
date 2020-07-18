@@ -59,7 +59,7 @@ class Java8JDK(Language):
         compile_command = ["/usr/lib/jvm/java-8-openjdk-amd64/bin"] + source_filenames
         # We need to let the shell expand *.class as javac create
         # a class file for each inner class.
-        if JavaJDK.USE_JAR:
+        if Java8JDK.USE_JAR:
             jar_command = ["/bin/sh", "-c",
                            " ".join(["jar", "cf",
                                      shell_quote(executable_filename),
@@ -75,7 +75,7 @@ class Java8JDK(Language):
             self, executable_filename, main=None, args=None):
         """See Language.get_evaluation_commands."""
         args = args if args is not None else []
-        if JavaJDK.USE_JAR:
+        if Java8JDK.USE_JAR:
             # executable_filename is a jar file, main is the name of
             # the main java class
 	    # Suggested by Martin to be lowered by 24MB given problem limit of 1024MB
