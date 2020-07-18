@@ -190,6 +190,7 @@ setup(
             "Haskell / ghc=cms.grading.languages.haskell_ghc:HaskellGhc",
             "Java 1.4 / gcj=cms.grading.languages.java14_gcj:Java14Gcj",
             "Java / JDK=cms.grading.languages.java_jdk:JavaJDK",
+            "Java 8 / OpenJDK=cms.grading.languages.java8_jdk:Java8JDK",
             "Pascal / fpc=cms.grading.languages.pascal_fpc:PascalFpc",
             "PHP=cms.grading.languages.php:Php",
             "Python 2 / CPython=cms.grading.languages.python2_cpython:Python2CPython",
