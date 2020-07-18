@@ -56,7 +56,7 @@ class Java8JDK(Language):
                                  source_filenames, executable_filename,
                                  for_evaluation=True):
         """See Language.get_compilation_commands."""
-        compile_command = ["/usr/lib/jvm/java-8-openjdk-amd64/bin"] + source_filenames
+        compile_command = ["/usr/lib/jvm/java-8-openjdk-amd64/bin/javac"] + source_filenames
         # We need to let the shell expand *.class as javac create
         # a class file for each inner class.
         if Java8JDK.USE_JAR:
