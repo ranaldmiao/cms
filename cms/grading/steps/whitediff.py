@@ -26,6 +26,7 @@
 """High level functions to perform standardized white-diff comparison."""
 
 import logging
+import filecmp
 
 from .evaluation import EVALUATION_MESSAGES
 
@@ -85,7 +86,7 @@ def _white_diff(output, res):
     return (bool): True if the two file are equal as explained above.
 
     """
-
+    
     while True:
         lout = output.readline()
         lres = res.readline()
@@ -144,10 +145,15 @@ def white_diff_step(sandbox, output_filename, correct_output_filename):
     return ((float, [str])): the outcome as above and a description text.
 
     """
+
     if sandbox.file_exists(output_filename):
-        with sandbox.get_file(output_filename) as out_file, \
-                sandbox.get_file(correct_output_filename) as res_file:
-            return white_diff_fobj_step(out_file, res_file)
+    """
+    Hack for IOI 2020
+    - Direct byte to byte comparison of output files for better performance
+    """
+        output_filepath = sandbox.relative_path(output_filename)
+        correct_output_filepath = sandbox.relative_path(correct_output_filename)
+        return filecmp.cmp(output_filepath, correct_output_filepath, shallow=False)
     else:
         return 0.0, [
             EVALUATION_MESSAGES.get("nooutput").message, output_filename]
