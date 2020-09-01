@@ -147,10 +147,10 @@ def white_diff_step(sandbox, output_filename, correct_output_filename):
     """
 
     if sandbox.file_exists(output_filename):
-    """
-    Hack for IOI 2020
-    - Direct byte to byte comparison of output files for better performance
-    """
+        """
+        Hack for IOI 2020
+        - Direct byte to byte comparison of output files for better performance
+        """
         output_filepath = sandbox.relative_path(output_filename)
         correct_output_filepath = sandbox.relative_path(correct_output_filename)
         return filecmp.cmp(output_filepath, correct_output_filepath, shallow=False)
