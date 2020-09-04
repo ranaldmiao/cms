@@ -34,7 +34,8 @@ def N_(message):
 class Notice(TaskType):
 
     ACCEPTED_PARAMETERS = []
-
+    ALLOW_SUBMISSION = False
+    
     testable = False
 
     def get_compilation_commands(self, unused_submission_format):
