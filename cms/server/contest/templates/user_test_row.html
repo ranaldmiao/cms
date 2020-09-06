@@ -3,7 +3,7 @@
 {% if show_date %}
     <td class="datetime">{{ t.timestamp|format_datetime }}</td>
 {% else %}
-    <td class="time">{{ t.timestamp|format_time }}</td>
+    <td class="datetime">{{ t.timestamp|format_time }}</td>
 {% endif %}
     <td class="status">
 {% if status == UserTestResult.COMPILING %}
