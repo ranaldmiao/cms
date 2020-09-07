@@ -301,6 +301,10 @@ class UserTestFileHandler(FileHandler):
 
         if stored_filename in user_test.files:
             digest = user_test.files[stored_filename].digest
+        elif filename in user_test.managers:
+            # IOI2020 Fix:
+            # Graders are not stored with the .%l suffix
+            digest = user_test.managers[filename].digest
         elif stored_filename in user_test.managers:
             digest = user_test.managers[stored_filename].digest
         else:
