@@ -116,6 +116,10 @@ class Communication(TaskType):
 
     ACCEPTED_PARAMETERS = [_NUM_PROCESSES, _COMPILATION, _USER_IO]
 
+    # IOI2020:
+    #   Disable testing of communication tasks
+    testable = False
+
     @property
     def name(self):
         """See TaskType.name."""
