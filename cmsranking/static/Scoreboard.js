@@ -405,9 +405,9 @@ var Scoreboard = new function () {
 
         $row.children("td.f_name").text(user["f_name"]);
         $row.children("td.l_name").text(user["l_name"]);
-
         if (user["team"]) {
-            $row.children(".team").html("<img src=\"" + Config.get_flag_url(user["team"]) + "\" title=\"" + DataStore.teams[user["team"]]["name"] + "\" />");
+            $row.children(".team").text(user['team']);
+            $row.children(".team").attr("title", DataStore.teams[user["team"]]["name"]);
         } else {
             $row.children(".team").text("");
         }
